@@ -72,6 +72,7 @@ type Device struct {
 	Type         string
 	Name         string
 	DoorState    string
+	LastUpdated  string
 }
 
 type response interface {
@@ -237,6 +238,7 @@ func (s *Session) Devices() ([]Device, error) {
 		Name         string `json:"name"`
 		State        struct {
 			DoorState string `json:"door_state"`
+			LastUpdated string `json:"last_status"`
 		} `json:"state"`
 	}
 
@@ -256,6 +258,7 @@ func (s *Session) Devices() ([]Device, error) {
 			Type:         body.Items[i].DeviceType,
 			Name:         body.Items[i].Name,
 			DoorState:    body.Items[i].State.DoorState,
+			LastUpdated:  body.Items[i].State.LastUpdated, 
 		}
 	}
 
@@ -283,7 +286,8 @@ func (s *Session) DeviceState(serialNumber string) (string, error) {
 		DeviceType   string `json:"device_type"`
 		Name         string `json:"name"`
 		State        struct {
-			DoorState string `json:"door_state"`
+			DoorState string `json:"door_state"`,
+			LastUpdated string `json:"last_status"`
 		} `json:"state"`
 	}
 

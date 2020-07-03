@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 
+	"encoding/json" 
 	"github.com/joeshaw/myq"
 )
 
@@ -83,7 +84,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Println("Logging into MyQ...")
+	//fmt.Println("Logging into MyQ...")
 
 	if err := s.Login(); err != nil {
 		fmt.Fprintf(os.Stderr, "ERROR: %v\n", err)
@@ -97,7 +98,7 @@ func main() {
 }
 
 func runDevices(s *myq.Session, args []string) error {
-	fmt.Println("Requesting devices from MyQ...")
+	//fmt.Println("Requesting devices from MyQ...")
 
 	devices, err := s.Devices()
 	if err != nil {
@@ -109,15 +110,24 @@ func runDevices(s *myq.Session, args []string) error {
 		return nil
 	}
 
-	for _, d := range devices {
-		fmt.Printf("Device %s\n", d.SerialNumber)
-		fmt.Printf("  Name: %s\n", d.Name)
-		fmt.Printf("  Type: %s\n", d.Type)
-		if d.DoorState != "" {
-			fmt.Printf("  Door State: %s\n", d.DoorState)
+	//for _, d := range devices {
+		// fmt.Printf("Device %s\n", d.SerialNumber)
+		// fmt.Printf("  Name: %s\n", d.Name)
+		// fmt.Printf("  Type: %s\n", d.Type)
+		// if d.DoorState != "" {
+		// 	fmt.Printf("  Door State: %s\n", d.DoorState)
+		// }
+		// fmt.Println()
+
+		json_msg, err := json.Marshal(devices)
+		
+		if err != nil {
+			panic(err)
 		}
-		fmt.Println()
-	}
+		
+		fmt.Println(string(json_msg))	
+
+	//}
 
 	return nil
 }
