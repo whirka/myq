@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"encoding/json" 
-	"github.com/joeshaw/myq"
+	"github.com/whirka/myq"
 )
 
 func usage() {
