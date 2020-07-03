@@ -1,3 +1,3 @@
-module github.com/joeshaw/myq
+module github.com/whirka/myq
 
 go 1.12

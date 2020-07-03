@@ -1,5 +1,7 @@
 # MyQ
 
+This is a fork of joeshaw's original work to update the device status output to be json.
+
 [![GoDoc](https://godoc.org/github.com/joeshaw/myq?status.svg)](http://godoc.org/github.com/joeshaw/myq)
 
 `myq` is a Go package and command-line tool providing access to
@@ -12,7 +14,7 @@ garage doors and gates.
 
 The `myq` tool can be installed with:
 
-    go get github.com/joeshaw/myq/cmd/myq
+    go get github.com/whirka/myq/cmd/myq
 
 Run `myq` by itself to see full usage information.
 
