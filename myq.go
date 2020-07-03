@@ -286,7 +286,7 @@ func (s *Session) DeviceState(serialNumber string) (string, error) {
 		DeviceType   string `json:"device_type"`
 		Name         string `json:"name"`
 		State        struct {
-			DoorState string `json:"door_state"`,
+			DoorState string `json:"door_state"` 
 			LastUpdated string `json:"last_status"`
 		} `json:"state"`
 	}
