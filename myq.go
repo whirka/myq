@@ -238,7 +238,7 @@ func (s *Session) Devices() ([]Device, error) {
 		Name         string `json:"name"`
 		State        struct {
 			DoorState string `json:"door_state"`
-			LastUpdated string `json:"last_status"`
+			LastUpdated string `json:"last_update"`
 		} `json:"state"`
 	}
 
@@ -287,7 +287,7 @@ func (s *Session) DeviceState(serialNumber string) (string, error) {
 		Name         string `json:"name"`
 		State        struct {
 			DoorState string `json:"door_state"` 
-			LastUpdated string `json:"last_status"`
+			LastUpdated string `json:"last_update"`
 		} `json:"state"`
 	}
 
